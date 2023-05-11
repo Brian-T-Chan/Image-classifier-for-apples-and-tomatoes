@@ -7,7 +7,9 @@ In this repository, I used Keras and a CNN to classify images of apples and toma
 
 - None of the images have both apples and tomatoes. If there are images that do have both fruits, then at least one of the fruits is/are not recognizable to the human eye.
 
-I ran several tests on certain collections of images (datasets) from those links. Generally, I considered balanced datasets (same number of apples as tomatoes) with the number of images of each fruit ranging from around 125 images to 210 images. I would first use `preprocessing.py` to compress these images to 150 by 150 pixel images, resulting in datasets that were at most around 6 MB on disk. The file `preprocessing.py` uses `compress.py`, which uses pandas groupby operations to compress the images.
+I ran several tests on certain collections of images (datasets) from those links. Generally, I considered balanced datasets (same number of apples as tomatoes) with the number of images of each fruit ranging from around 125 images to 210 images. 
+
+I would first use `preprocessing.py` to compress these images to 150 by 150 pixel images, resulting in datasets that were at most around 6 MB on disk. The file `preprocessing.py` uses `compress.py`, which uses pandas groupby operations to compress the images.
 
 I would then take 10% of such compressed images as test data, and with the remaining compressed data, perform an 80-20 split so that 80% of the remaining data was training data and 20% of the remaining data was validation data. I made this 80-20 split because I wanted to use an early stopping callback during training, which relies on validation data. 
 
